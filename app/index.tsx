@@ -5,12 +5,12 @@ import { useRouter } from "expo-router";
 import Animated, { ZoomIn } from "react-native-reanimated";
 
 const index = () => {
-  const router = useRouter();
-  useEffect(() => {
-    setTimeout(() => {
-      router.push("/(auth)/welcome");
-    }, 3000);
-  });
+  // const router = useRouter();
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     router.push("/(auth)/welcome");
+  //   }, 3000);
+  // });
   return (
     <View style={styles.container}>
       <Animated.Image
