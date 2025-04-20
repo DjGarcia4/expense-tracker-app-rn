@@ -5,9 +5,11 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
+import { Alert } from "react-native";
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
@@ -107,12 +109,31 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       console.log("error: ", msg);
     }
   };
+  const showLogOutAlert = () => {
+    Alert.alert("Confirmar", "¿Estás seguro de que deseas cerrar sesión?", [
+      {
+        text: "Cancelar",
+        onPress: () => console.log("Cancelar"),
+        style: "cancel",
+      },
+      {
+        text: "Cerrar sesión",
+        onPress: () => handleLogout(),
+        style: "destructive",
+      },
+    ]);
+  };
+
+  const handleLogout = async () => {
+    await signOut(auth);
+  };
   const contextValue: AuthContextType = {
     user,
     setUser,
     login,
     register,
     updateUserData,
+    showLogOutAlert,
   };
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>

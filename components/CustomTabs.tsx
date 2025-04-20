@@ -80,6 +80,7 @@ export default function CustomTabs({
         return (
           <TouchableOpacity
             // href={buildHref(route.name, route.params)}
+            key={route.name}
             accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
             testID={options.tabBarButtonTestID}

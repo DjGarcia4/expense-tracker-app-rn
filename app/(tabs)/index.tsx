@@ -8,18 +8,15 @@ import { useAuth } from "@/contexts/authContext";
 import ScreenWrapper from "@/components/ScreenWrapper";
 
 const Home = () => {
-  const { user } = useAuth();
+  const { user, showLogOutAlert } = useAuth();
   console.log(user);
 
-  const handleLogout = async () => {
-    await signOut(auth);
-  };
   return (
     <ScreenWrapper>
       <Typo>Home</Typo>
-      <Button onPress={handleLogout}>
+      {/* <Button onPress={() => showLogOutAlert()}>
         <Typo>Logout</Typo>
-      </Button>
+      </Button> */}
     </ScreenWrapper>
   );
 };
