@@ -44,6 +44,7 @@ const Wallet = () => {
     <ScreenWrapper style={{ backgroundColor: colors.black }}>
       <View style={styles.container}>
         {/* balance view */}
+        {/* balance view */}
         <View style={styles.balanceView}>
           <View style={{ alignItems: "center" }}>
             <Typo size={45} fontWeight={"500"}>
